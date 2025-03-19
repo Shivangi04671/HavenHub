@@ -1,0 +1,24 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <h2>All Listings</h2>
+
+    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 " style="grid-template-columns: repeat(4, minmax(0, 1fr));">
+
+    <% for(let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>"  class="listing-link"> 
+    <div class="card col" style="width: 18rem;  margin: 5px;">
+        <img src="<%= listing.image%>" class="card-img-top " alt="listing_image"  style="width: 16rem; height:15rem; padding-top: 5px; border-radius: 0.5rem;  padding-left: 20px;" >
+        <div class="card-img-overlay"></div>
+
+
+        <div class="card-body">
+          <p class="card-text">
+            <br> <b> <%=listing.title%> </b> <br/> 
+             &#8377;<%=listing.price.toLocaleString("en-IN")%>/night 
+        </p>
+        </div>
+      </div>
+    <%}%>
+  
+</div> 
+</body>
